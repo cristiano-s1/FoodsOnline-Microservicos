@@ -28,7 +28,7 @@ builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(string
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 #endregion
 
-#region INJECTION DEPENDENCY
+#region IDENPENDENCY INJECT
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
