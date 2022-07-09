@@ -1,4 +1,5 @@
 ﻿using FoodsOnline.API.Models;
+using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 
 namespace FoodsOnline.API.DTOs.Data
@@ -28,6 +29,7 @@ namespace FoodsOnline.API.DTOs.Data
 
         public string? CategoryName { get; set; }
 
+        [JsonIgnore]
         public Category? Category { get; set; }
 
         public int CategoryId { get; set; }

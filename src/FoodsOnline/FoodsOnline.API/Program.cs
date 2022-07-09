@@ -2,13 +2,15 @@ using FoodsOnline.API.Context;
 using FoodsOnline.API.Services;
 using FoodsOnline.API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 using FoodsOnline.API.Services.Contracts;
 using FoodsOnline.API.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 #region CONTROLLERS
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 #endregion
 
 #region SWAGGER
@@ -26,7 +28,7 @@ builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(string
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 #endregion
 
-#region INJECTION DEPENDENCY
+#region IDENPENDENCY INJECT
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();

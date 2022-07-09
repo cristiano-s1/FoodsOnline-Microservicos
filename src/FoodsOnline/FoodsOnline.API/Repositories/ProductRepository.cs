@@ -16,7 +16,7 @@ namespace FoodsOnline.API.Repositories
 
         public async Task<IEnumerable<Product>> GetAll()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Include(c => c.Category).ToListAsync();
         }
 
         public async Task<Product> GetById(int id)
