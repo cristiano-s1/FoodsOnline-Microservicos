@@ -12,7 +12,7 @@ namespace FoodsOnline.API.DTOs.Mappings
 
             CreateMap<ProductDTO, Product>();
 
-            CreateMap<Product, ProductDTO>().ForMember(c => c.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
+            CreateMap<Product, ProductDTO>().ForMember(x => x.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
         }
     }
 }
